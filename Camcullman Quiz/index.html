@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" name="description" content="A skiing addicts take on the quiz app">
+
+<!-- Tab shows -->
+  <title>Do you even ski bra?</title>
+
+<!-- Style links -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <!-- API for google fonts shadows into light font - which I thought felt right for the tone of the quiz -->
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <main>
+  
+
+    
+
+    <!-- inline styling this instead of CSS because it should never be viewable to anyone except our JS, which uses this content as mini-templates for questions and answers -->
+
+    <!-- Create start-page class which is styled with not displying (before events occur) -->
+      <div class="start-page" style="display: none;">
+        <!-- Quiz title -->
+        <h1>The skiers Quiz</h1>
+        <!-- Quiz Description -->
+        <p>We've got 6 questions to see what you know about ski culture- should be totally sweet if you know your stuff!</p>
+        
+        <!-- Creates form for starting the game and allowing interaction -->
+        <form name="game-start">
+          <!-- creates start button -->
+          <button type="submit">Begin!</button>
+        </form>
+      </div>
+
+      <!-- Shows classes and styling for the standard question page displayed. Because the page is hidden at first (have to first show the start screen) the standard style before interaction is being hiddin (display: none) -->
+      <div class="question-page" style="display: none;">
+        
+        <!-- Class to outline question count and text -->
+        <h3><span class="question-count"></span> : <span class="question-text"></span></h3>
+        
+        <!-- Outlines the specific question and options for answers-->
+        <form name="current-question">
+          <ol type="A" class="choices"></ol>
+          
+         <!-- Button to submit answer -->
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+
+      <!-- Shows classes and styling for the question feedback page displayed. The display is hidden so it can be revealed after an answer is submitted -->
+      <div class="answer-feedback-page" style="display: none;">
+        <div class="feedback-container">
+          <div class="feedback-header"></div>
+          <p class="feedback-text"></p>
+          <button class="see-next"></button>
+        </div>
+      </div>
+      
+
+      <!-- Shows classes and styling for the final (results) page  -->
+      <div class="final-feedback-page" style="display: none;">
+        <h1>Let's see how you did broski</h1>
+        <p class="results-text"></p>
+        <button class="restart-game">Let me go again!</button>
+      </div>
+    </main>
+
+  </div>
+
+<!-- since the browser reads the file top to bottom, and the .js file depends on jQuery, the app.js file comes after jQuery -->
+
+  <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
